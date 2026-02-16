@@ -30,12 +30,14 @@ const dutyStore = (set) => ({
   // ฟังก์ชันดึงข้อมูลทั้งหมดจาก backend
   fetchAll: async () => {
     try {
-      // เรียก API ไปที่ endpoint /personnel
+      // เรียก API ไปที่ endpoint 
       const personnel = await api.get("/personnel");
+      const locations = await api.get("/locations");
 
       // อัปเดต state โดยใช้ set
       set({
         personnel: personnel,
+        Locations: locations,
       });
     } catch (error) {
       // ถ้าเกิด error ระหว่างเรียก API

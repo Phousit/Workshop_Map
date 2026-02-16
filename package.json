@@ -11,12 +11,14 @@
     "db": "json-server --watch db.json"
   },
   "dependencies": {
+    "@fontsource/noto-sans-lao": "^5.2.8",
     "@tailwindcss/vite": "^4.1.18",
     "axios": "^1.13.5",
     "json-server": "^1.0.0-beta.5",
     "lucide-react": "^0.564.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-leaflet": "^5.0.0-rc.2",
     "tailwindcss": "^4.1.18",
     "zustand": "^5.0.11"
   },
