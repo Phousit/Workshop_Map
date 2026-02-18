@@ -3,14 +3,14 @@ import useDutyStore from "../../store/useDutyStore";
 import { MapPin, Trash2 } from "lucide-react";
 const LocationList = () => {
   const locations = useDutyStore((state) => state.Locations);
-  console.log(locations);
+
 
   return (
-    <div className="w-80 bg-white border-l shadow-lg border-gray-400">
+    <div className="w-80 bg-white border-l shadow-lg border-gray-400" style={{ fontFamily: 'Noto Sans Lao, sans-serif' }}>
       <div className="p-6 border-b border-gray-400">
         <div className="flex gap-4 items-center text-xl font-bold">
           <MapPin className="text-red-500 " size={32} />
-          <h2 className="text-2xl font-semibold" style={{ fontFamily: 'Noto Sans Lao, sans-serif' }}>ເພີ່ມຈຸດເຂົ້າເວນ</h2>
+          <h2 className="text-2xl font-semibold" >ເພີ່ມຈຸດເຂົ້າເວນ</h2>
         </div>
       </div>
 
@@ -24,8 +24,8 @@ const LocationList = () => {
             >
               <div className="flex justify-between p-2">
                 <div className="flex-1">
-                  <h3 className="font-semibold text-lg" style={{ fontFamily: 'Noto Sans Lao, sans-serif' }}>{item.name}</h3>
-                  <p className="text-sm text-gray-500" style={{ fontFamily: 'Noto Sans Lao, sans-serif' }}>... / {item.maxCapacity}</p>
+                  <h3 className="font-semibold text-lg" >{item.name}</h3>
+                  <p className="text-sm text-gray-500" s>... / {item.maxCapacity}</p>
                 </div>
                 <button className="text-red-500 hover:text-red-700 cursor-pointer">
                   <Trash2 size={20} />
