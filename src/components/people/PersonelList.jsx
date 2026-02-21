@@ -7,7 +7,7 @@ const PersonelList = () => {
   const personnel = useDutyStore((state) => state.personnel);
   
   return (
-    <div className="w-80 bg-white overflow-y-auto" style={{ fontFamily: 'Noto Sans Lao, sans-serif' }}>
+    <div className="w-80 bg-white overflow-y-auto" >
       <div className="p-6 border-b border-gray-200">
         <div className="flex items-center gap-2 mb-4">
           <Users className="text-blue-500" />

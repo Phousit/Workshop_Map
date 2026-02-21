@@ -6,7 +6,7 @@ const LocationList = () => {
 
 
   return (
-    <div className="w-80 bg-white border-l shadow-lg border-gray-400" style={{ fontFamily: 'Noto Sans Lao, sans-serif' }}>
+    <div className="w-80 bg-white border-l shadow-lg border-gray-400" >
       <div className="p-6 border-b border-gray-400">
         <div className="flex gap-4 items-center text-xl font-bold">
           <MapPin className="text-red-500 " size={32} />

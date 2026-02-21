@@ -4,10 +4,10 @@ import React from "react";
 const Header = ({ adding, setAdding }) => {
 
   return (
-    <div className="p-4 bg-amber-100 shadow-md border-b border-gray-200 " style={{ fontFamily: "Noto Sans Lao, sans-serif" }}>
+    <div className="p-4 bg-amber-100 shadow-md border-b border-gray-200 " >
       <div
         className="flex justify-between items-center "
-        style={{ fontFamily: "Noto Sans Lao, sans-serif" }}
+       
       >
         <h2 className="text-xl font-bold">ລະບົບຈັດການເວນປະຈຳຈຸດ</h2>
         <button

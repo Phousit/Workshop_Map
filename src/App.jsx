@@ -3,13 +3,13 @@ import PersonelList from "./components/people/PersonelList";
 import Header from "./components/layout/Header";
 import LocationList from "./components/locations/LocationList";
 import MapView from "./components/map/MapView";
+import AddLocationModal from "./components/locations/AddLocationModal";
 import useDutyStore from "./store/useDutyStore";
 const App = () => {
-
-   // สถานะเพื่อติดตามว่าเรากำลังอยู่ในโหมด "เพิ่ม" หรือไม่
+  // สถานะเพื่อติดตามว่าเรากำลังอยู่ในโหมด "เพิ่ม" หรือไม่
   const [adding, setAdding] = useState(false);
 
-  //
+  // สถานะเพื่อเก็บข้อมูลตำแหน่งที่ผู้ใช้เลือกบนแผนที่เมื่ออยู่ในโหมดเพิ่ม
   const [pending, setPending] = useState(null);
 
   // ดึงฟังก์ชัน fetchAll จาก store เพื่อโหลดข้อมูลเมื่อคอมโพเนนต์ถูกสร้าง
@@ -22,29 +22,34 @@ const App = () => {
 
   // ฟังก์ชันที่จะถูกเรียกเมื่อผู้ใช้คลิกบนแผนที่เพื่อเพิ่มจุดเวน
   const onPick = (lat, lng) => {
-     setPending({ lat, lng });
-  }
-  
-  
+    setPending({ lat, lng });
+  };
 
-  
-  
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-screen bg-gray-100" style={{ fontFamily: 'Noto Sans Lao, sans-serif' }}>
       <PersonelList />
 
       <div className="flex flex-col flex-1">
-
         {/* prop adding และ setAdding ถูกส่งไปยัง Header เพื่อให้สามารถสลับโหมดการเพิ่มจุดเวนได้ */}
         <Header adding={adding} setAdding={setAdding} />
 
         <div className="flex flex-1 overflow-hidden">
-
-           {/* prop adding และ onPick ถูกส่งไปยัง MapView เพื่อให้สามารถเพิ่มจุดเวนเมื่อคลิกบนแผนที่ได้ */}
-          <MapView adding={adding} onPick={onPick}/>
+          {/* prop adding และ onPick ถูกส่งไปยัง MapView เพื่อให้สามารถเพิ่มจุดเวนเมื่อคลิกบนแผนที่ได้ */}
+          <MapView adding={adding} onPick={onPick} />
           <LocationList />
         </div>
       </div>
+      {
+        // ถ้ามีข้อมูล pending อยู่ แสดงข้อความที่ตำแหน่งนั้น
+        pending && (
+          <AddLocationModal
+            lat={pending.lat}
+            lng={pending.lng}
+            setAdding={setAdding}
+            setPending={setPending}
+          />
+        )
+      }
     </div>
   );
 };
