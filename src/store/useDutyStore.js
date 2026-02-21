@@ -4,9 +4,8 @@ import { create } from "zustand";
 // นำเข้า api ที่เราเขียนไว้สำหรับเรียก backend
 import { api } from "../lib/api";
 
-// สร้างฟังก์ชัน dutyStore
-// โดย zustand จะส่ง set มาให้ใช้สำหรับอัปเดต state
-const dutyStore = (set) => ({
+// ฟังก์ชันที่กำหนดโครงสร้างของ store ของเรา
+const dutyStore = (set, get) => ({
   // ======================
   // State (ข้อมูลส่วนกลาง)
   // ======================
@@ -45,6 +44,27 @@ const dutyStore = (set) => ({
       console.error("Error fetching data:", error);
     }
   },
+
+  // ฟังก์ชันเลือกสถานที่
+  addLocation: async (name, lat, lng) => {
+    try {
+      // เรียก API เพื่อเพิ่มสถานที่ใหม่
+      const res = await api.post("/locations",
+        {
+          name: name,
+          lat: Number(lat),
+          lng: Number(lng),
+          maxCapacity: 5,
+        }
+       );
+       // หลังจากเพิ่มสถานที่ใหม่แล้ว ให้รีเฟรชข้อมูลทั้งหมดอีกครั้งเพื่อให้ UI อัปเดต
+        await get().fetchAll(
+      )
+    } catch (error) {
+      console.error("Error adding location:", error);
+      
+    }
+  }
 });
 
 // สร้าง custom hook สำหรับเรียกใช้งาน store นี้ใน component
