@@ -79,6 +79,27 @@
       "lat": 12.946512219512973,
       "lng": 101.11653327941896,
       "maxCapacity": 5
+    },
+    {
+      "id": "23f5",
+      "name": "vientain",
+      "lat": 15.496032414238634,
+      "lng": 100.733642578125,
+      "maxCapacity": 5
+    },
+    {
+      "id": "b71b",
+      "name": "vient",
+      "lat": 13.998036539606128,
+      "lng": 101.29394531250001,
+      "maxCapacity": 5
+    },
+    {
+      "id": "9558",
+      "name": "nongniew",
+      "lat": 13.747388924343081,
+      "lng": 101.0302734375,
+      "maxCapacity": 5
     }
   ],
   "locationPersonnel": [
