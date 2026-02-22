@@ -5,6 +5,11 @@ import { Users, Clock } from "lucide-react";
 const PersonelList = () => {
   // Zustand
   const personnel = useDutyStore((state) => state.personnel);
+
+  const onDragStart = (e, personId) => {
+    // console.log(e, personId);
+    e.dataTransfer.setData("personId", personId);
+  }
   
   return (
     <div className="w-80 bg-white overflow-y-auto" >
@@ -21,6 +26,8 @@ const PersonelList = () => {
           return (
             <div 
             key={item.id}
+            draggable
+            onDragStart={(e) => onDragStart(e, item.id)}
               className="flex items-center gap-3 p-4 bg-blue-100 border border-blue-300 rounded-lg cursor-move hover:shadow-md hover:scale-102">
               <div className="text-3xl">{item.avatar}</div>
               <div className="flex-1">
