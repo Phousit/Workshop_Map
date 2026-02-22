@@ -4,6 +4,11 @@ import { MapPin, Trash2 } from "lucide-react";
 const LocationList = () => {
   const locations = useDutyStore((state) => state.Locations);
 
+  const onDropToLocation = (e, locationId) => {
+    const personId = e.dataTransfer.getData("personId");
+    console.log(personId, locationId);
+  };
+
 
   return (
     <div className="w-80 bg-white border-l shadow-lg border-gray-400" >
@@ -19,6 +24,9 @@ const LocationList = () => {
         {locations.map((item) => {
           return (
             <div
+              
+              onDragOver={(e) => e.preventDefault()}
+              onDrop={(e) => onDropToLocation(e, item.id)}
               key={item.id}
               className="border-2 border-dashed rounded-md border-gray-400 bg-gray-100"
             >
