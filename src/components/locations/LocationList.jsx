@@ -25,7 +25,7 @@ const LocationList = () => {
               <div className="flex justify-between p-2">
                 <div className="flex-1">
                   <h3 className="font-semibold text-lg" >{item.name}</h3>
-                  <p className="text-sm text-gray-500" s>... / {item.maxCapacity}</p>
+                  <p className="text-sm text-gray-500" >... / {item.maxCapacity}</p>
                 </div>
                 <button className="text-red-500 hover:text-red-700 cursor-pointer">
                   <Trash2 size={20} />
